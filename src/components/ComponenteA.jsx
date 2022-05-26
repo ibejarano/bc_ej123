@@ -1,33 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import { Contacto } from "../models/contact.class";
+import ComponenteB from "./ComponenteB";
 
-class ComponenteA extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      edad: 17,
-    };
-  }
+const ComponenteA = () => {
+  const contacto = new Contacto("Lionel", "Villa", "lvilla@gmail.com", false);
 
-  render() {
-    return (
-      <div>
-        <h1>Contacto</h1>
-        <h3>Nombre: {this.props.contacto.nombre}</h3>
-        <h3>Apellido: {this.props.contacto.apellido}</h3>
-        <h3>E-mail: {this.props.contacto.email}</h3>
-        <h3>
-          Contacto{" "}
-          {this.props.contacto.conectado ? "En Línea" : "No disponible"}
-        </h3>
-      </div>
-    );
-  }
-}
-
-ComponenteA.propTypes = {
-  contacto: PropTypes.instanceOf(Contacto),
+  return (
+    <div>
+      <ComponenteB contacto={contacto} />
+    </div>
+  );
 };
 
 export default ComponenteA;
